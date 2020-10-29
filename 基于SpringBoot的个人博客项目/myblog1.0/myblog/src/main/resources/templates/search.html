@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../static/images/favicon.ico" th:href="@{/images/me.jpg}" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+  <title>搜索结果</title>
+</head>
+<body>
+
+<!--导航-->
+<nav class="gird-header">
+  <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+      <h2 class="ui teal header item">Mr.ou's Blog</h2>
+      <!--<div class="right m-item item m-mobile-hide">-->
+      <a href="#" th:href="@{/}" class=" m-item item m-mobile-hide"><i class=" home icon"></i>首页</a>
+      <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
+      <a href="#" th:href="@{/tags}" class="m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+      <a href="#" th:href="@{/archives}" class=" m-item item m-mobile-hide"><i class=" clock icon"></i>归档</a>
+      <a href="#" th:href="@{/music}" class=" m-item item m-mobile-hide"><i class="music icon"></i>音乐盒</a>
+      <a href="#" th:href="@{/message}" class=" m-item item m-mobile-hide"><i class="book icon"></i>留言板</a>
+      <a href="#" th:href="@{/picture}" class=" olive m-item item m-mobile-hide"><i class=" image icon"></i>照片墙</a>
+      <a href="#" th:href="@{/friends}" class=" m-item item m-mobile-hide"><i class="pencil alternate icon"></i>友链</a>
+      <a href="#" th:href="@{/about}" class=" m-item item m-mobile-hide"><i class=" info icon"></i>关于我</a>
+      <!--</div>-->
+      <div class="right m-item item m-mobile-hide">
+        <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+          <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+            <input style="color: white" type="text" name="query" placeholder="Search...." th:value="${query}">
+            <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+
+
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 60%">
+  <img src="../static/images/typebg.png" th:src="@{/images/typebg.png}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+  <div class="m-bg-class_cover">
+    <div class="ui container" style="position: relative ;bottom: -500px;">
+      <div class="m-font-size-title m-right-bottom" align="center" style="font-family:'STXingkai'">博客搜索结果</div>
+      <div class="m-font-size-text-init-title m-margin-top" align="center">人生，就是一个不断寻找的过程</div>
+    </div>
+  </div>
+</div>
+
+  <!--中间内容-->
+  <div  class="m-margin-">
+    <div class="ui container">
+      <!--header-->
+      <div class="ui top attached segment">
+        <div class="ui middle aligned two column grid">
+          <div class="column">
+            <h3 class="ui teal header">搜索结果</h3>
+          </div>
+          <div class="right aligned column">
+            共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${pageInfo.total}"> 14 </h2> 个
+          </div>
+        </div>
+      </div>
+
+      <div class="ui top attached segment">
+        <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${pageInfo.list}">
+          <div class="ui middle aligned mobile reversed stackable grid" >
+            <div class="eleven wide column">
+              <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-title-font" th:text="${blog.title}">我一直在找寻，你的名字。</a></h3>
+              <p class="m-text m-margin-top-max" th:text="|${blog.description}......|">遇见竟然需要如此用力，穿越错位的时空，仰望陨落的星辰，你没留下你的名字，我却无法
+                忘记你写在我手心的名字。我一直在寻找着什么，不知何时，我陷入了这种情绪里。......</p>
+              <div class="ui grid m-margin-top-max">
+                <div class="eleven wide column">
+                  <div class="ui mini horizontal link list">
+                    <div class="item">
+                      <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.avatar}}"  alt="" class="ui avatar image">
+                      <div class="content"><a href="#" th:href="@{/about}" target="_blank" class="header" th:text="${blog.nickname}" >Mr.ou</a></div>
+                    </div>
+                    <div class="item">
+                      <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-07-06</span>
+                    </div>
+                    <div class="item">
+                      <i class="eye icon"></i> <span th:text="${blog.views}">6666</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="right aligned five wide column">
+                  <a href="#" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin" th:text="${blog.typeName}">好文</a>
+                </div>
+              </div>
+            </div>
+
+            <!--博文首图-->
+            <div class="five wide column">
+              <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                <img src="../static/images/backimg.png" th:src="@{${blog.firstPicture}}"  alt="" class="ui rounded image">
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--分页-->
+      <!--<div class="ui bottom attached segment m-opacity stackable grid">-->
+        <!--<div class="three wide column" align="center">-->
+          <!--<a class="item" th:href="@{/search(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">上一页</a>-->
+        <!--</div>-->
+
+        <!--<div class="ten wide column" align="center">-->
+          <!--<p> <span th:text="${pageInfo.pageNum}" th:unless="${pageInfo.hasNextPage}"></span> / <span th:text="${pageInfo.pages}"></span> </p>-->
+        <!--</div>-->
+
+        <!--<div class="three wide column" align="center">-->
+          <!--<a class="item" th:href="@{/search(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}">下一页</a>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+<!--底部栏-->
+<footer class="ui inverted vertical segment m-padded-tb-massive m-opacity">
+  <div class="ui center aligned container">
+    <!--grid 将模块分为16份  divided分割线-->
+    <div class="ui inverted divided stackable grid">
+      <!--联系我-->
+      <div class="four wide column">
+        <div style="font-size: large;font-weight: bold" class="ui inverted m-text-thin m-text-spaced m-margin-top" >联系我</div>
+        <div class="ui inverted link list">
+          <br>
+          <div href="#" class="m-text-thin">QQ：1032423474</div>
+          <div href="#" class="m-text-thin">Email：itoldou@foxmail.com</div>
+          <div href="#" class="m-text-thin">Wechat：浪过、涛自在~</div>
+        </div>
+      </div>
+
+
+      <div class="four wide column">
+        <div class="ui inverted link list">
+          <h4 class="ui inverted header m-text-spaced m-opacity-mini">欢迎打赏(微信)</h4>
+          <div class="item">
+            <img src="../static/images/weixin.png" class="ui rounded image" alt="" style="width: 110px">
+          </div>
+        </div>
+      </div>
+
+      <div class="four wide column">
+        <div class="ui inverted link list">
+          <h4 class="ui inverted header m-text-spaced m-opacity-mini">微信交流</h4>
+          <div class="item">
+            <img src="../static/images/myWechat.png"  class="ui rounded image" alt="" style="width: 110px">
+          </div>
+        </div>
+      </div>
+
+      <!--博客运行时间统计-->
+      <div class="four wide column">
+        <div style="font-size: large;font-weight: bold" class="ui inverted  m-text-thin m-text-spaced m-margin-top">博客信息</div>
+        <!--<p id="htmer_time" class="item m-text-thin"></p>-->
+        <div id="blog-message">
+          <div class="ui inverted link list" style="align-content: center;margin-top: 10px" th:fragment="blogMessage">
+            <div class="m-text-thin" style="text-align: left;margin-left: 75px;">
+              文章总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogTotal}"> 14 </h2> 篇
+            </div>
+            <div class="m-text-thin" style="text-align: left;margin-left: 75px">
+              访问总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogViewTotal}"> 14 </h2> 次
+            </div>
+            <div class="m-text-thin" style="text-align: left;margin-left: 75px">
+              评论总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogCommentTotal}"> 14 </h2> 条
+            </div>
+            <div class="m-text-thin" style="text-align: left;margin-left: 75px">
+              留言总数： <h2 class="ui orange header m-inline-block m-margin-top-null" style="font-size:medium;" th:text="${blogMessageTotal}"> 14 </h2> 条
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--最底部的线-->
+    <div class="ui inverted section divider"></div>
+    <div style="color: darkorange;margin-top: -18px" class="ui inverted m-text-thin m-text-spaced">Mr.ou's blog 已营业：<span id="htmer_time" class="item"></span>٩(๑òωó๑)۶</div>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright @ 2020- 2020 | OuJiangTao Designed by OuJiangTao</p>
+
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+  <script>
+
+      // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+      $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+      // 运行时间统计
+      function secondToDate(second) {
+        if (!second) {
+          return 0;
+        }
+        var time = new Array(0, 0, 0, 0, 0);
+        if (second >= 365 * 24 * 3600) {
+          time[0] = parseInt(second / (365 * 24 * 3600));
+          second %= 365 * 24 * 3600;
+        }
+        if (second >= 24 * 3600) {
+          time[1] = parseInt(second / (24 * 3600));
+          second %= 24 * 3600;
+        }
+        if (second >= 3600) {
+          time[2] = parseInt(second / 3600);
+          second %= 3600;
+        }
+        if (second >= 60) {
+          time[3] = parseInt(second / 60);
+          second %= 60;
+        }
+        if (second > 0) {
+          time[4] = second;
+        }
+        return time;
+      }
+      function setTime() {
+        /*此处为网站的创建时间     new Date(Date.UTC(year, month - 1, day, hour, minute, second))*/
+        var create_time = Math.round(new Date(Date.UTC(2020, 06, 17, 15, 00, 15)).getTime() / 1000);
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+                + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+                + '秒';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+      }
+      setInterval(setTime, 1000);
+
+
+      $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+  </script>
+</body>
+</html>

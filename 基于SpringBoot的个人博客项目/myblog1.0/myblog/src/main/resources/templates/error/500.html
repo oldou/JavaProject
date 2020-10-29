@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <!--移动端的预览设置-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../static/images/favicon.ico" th:href="@{/images/me.png}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}" />
+    <title>500</title>
+</head>
+<body>
+
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini">
+    <div class="ui container">
+        <!--stackable 可堆叠，适应手机端-->
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Mr.ou's Blog</h2>
+            <a href="#" th:href="@{/}" class=" m-item item m-mobile-hide"><i class=" home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class=" m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags}" class=" m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class=" m-item item m-mobile-hide"><i class=" clock icon"></i>归档</a>
+            <a href="#" th:href="@{/music}" class=" m-item item m-mobile-hide"><i class="music icon"></i>音乐盒</a>
+            <a href="#" th:href="@{/message}" class=" m-item item m-mobile-hide"><i class="book icon"></i>留言板</a>
+            <a href="#" th:href="@{/picture}" class=" olive m-item item m-mobile-hide"><i class=" image icon"></i>照片墙</a>
+            <a href="#" th:href="@{/friends}" class=" m-item item m-mobile-hide"><i class="pencil alternate icon"></i>友链</a>
+            <a href="#" th:href="@{/about}" class=" m-item item m-mobile-hide"><i class=" info icon"></i>关于我</a>
+            <!--搜索框-->
+            <div class="right item m-mobile-hide">
+                <div class="ui icon transparent input m-margin-tb-tiny" style="color: white">
+                    <input style="color: white" type="text" name="query" placeholder="Search...." th:value="${query}">
+                    <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="ui menu toggle  black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message">
+        <div class="ui contianer">
+            <h2>404</h2>
+            <p>您访问的资源不存在</p>
+        </div>
+    </div>
+</div>-->
+
+<div class="ui  m-opacity m-margin-top-max container">
+    <img src="../../static/images/500.png" th:src="@{/images/500.png}" alt="" class="ui m-container-small rounded bordered fluid image">
+</div>
+<div class="m-margin-top-max" align="center">
+    <a href="#" th:href="@{/}">
+        <button type="button" class="ui teal button m-mobile-wide"><i class="home icon"></i>返回首页</button>
+    </a>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

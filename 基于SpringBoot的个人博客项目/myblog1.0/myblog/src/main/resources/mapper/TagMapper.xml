@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.oldou.dao.TagDao">
+
+    <!--新增标签-->
+    <insert id="saveTag" parameterType="Tag">
+        insert into blog.t_tag values (default,#{name});
+    </insert>
+
+    <!--根据id查询标签-->
+    <select id="getTagById" resultType="Tag" >
+        select * from blog.t_tag where id = #{id};
+    </select>
+
+    <!--根据name查询标签-->
+    <select id="getTagByName"  resultType="Tag">
+        select * from blog.t_tag where name = #{name};
+    </select>
+
+    <!--查询所有标签-->
+    <select id="getAllTag" resultType="Tag">
+        select * from blog.t_tag;
+    </select>
+
+    <resultMap id="tag" type="Tag">
+        <id property="id" column="tid"/>
+        <result property="name" column="name"/>
+        <collection property="blog" javaType="Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="tagId" column="tag_id"/>
+        </collection>
+    </resultMap>
+
+    <!--标签页面查询-->
+    <select id="getAllTagAndBlog" resultMap="tag">
+        select t.id tid, t.name, b.id bid, b.title,b.tag_id from blog.t_tag t,blog.t_blog b where t.id = b.tag_id;
+    </select>
+
+
+    <!--获取一定数量id的标签 List<Long> ids-->
+    <select id="getListIdTag" resultType="java.lang.Long">
+    select
+    *
+    from
+    t_tag
+    where id  in
+    <foreach collection="idList" item="id" open="(" separator="," close=")">
+    <trim>
+    #{id}
+    </trim>
+    </foreach>
+    </select>
+
+
+    <!--修改标签信息-->
+    <update id="updateTag" parameterType="Tag">
+        update blog.t_tag set name = #{name} where id = #{id};
+    </update>
+
+    <!--删除标签-->
+    <delete id="deleteTag" >
+        delete from blog.t_tag where id = #{id}
+    </delete>
+</mapper>

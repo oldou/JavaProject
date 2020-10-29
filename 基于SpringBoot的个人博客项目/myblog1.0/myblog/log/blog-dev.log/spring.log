@@ -1,0 +1,448 @@
+2020-09-26 02:15:12.339  INFO 26512 --- [restartedMain] com.oldou.MyblogApplication              : Starting MyblogApplication on DESKTOP-I7V97U7 with PID 26512 (E:\项目资料\小而美个人博客系统\初始版博客mybatis\myblog\target\classes started by Mr_xi in E:\项目资料\小而美个人博客系统\初始版博客mybatis\myblog)
+2020-09-26 02:15:12.438 DEBUG 26512 --- [restartedMain] com.oldou.MyblogApplication              : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-09-26 02:15:12.439  INFO 26512 --- [restartedMain] com.oldou.MyblogApplication              : The following profiles are active: dev
+2020-09-26 02:15:12.517  INFO 26512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-26 02:15:12.518  INFO 26512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-26 02:15:14.050  INFO 26512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-26 02:15:14.060  INFO 26512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-26 02:15:14.060  INFO 26512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-09-26 02:15:14.150  INFO 26512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-26 02:15:14.150  INFO 26512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1632 ms
+2020-09-26 02:15:15.031  INFO 26512 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-26 02:15:15.157  INFO 26512 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-26 02:15:15.572  INFO 26512 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-26 02:15:15.621  INFO 26512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-26 02:15:15.633  INFO 26512 --- [restartedMain] com.oldou.MyblogApplication              : Started MyblogApplication in 4.051 seconds (JVM running for 6.849)
+2020-09-26 02:15:24.931  INFO 26512 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-26 02:15:24.932  INFO 26512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-26 02:15:24.944  INFO 26512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-09-26 02:15:24.974  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:15:25.040  INFO 26512 --- [http-nio-8080-exec-1] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-09-26 02:15:25.166 DEBUG 26512 --- [http-nio-8080-exec-1] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:15:25.186 DEBUG 26512 --- [http-nio-8080-exec-1] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:15:25.217 DEBUG 26512 --- [http-nio-8080-exec-1] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:15:25.219 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:15:25.220 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:15:25.223 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:15:25.225 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:15:25.226 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:15:25.229 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:15:25.230  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:15:25.722  INFO 26512 --- [http-nio-8080-exec-5] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:15:25.729 DEBUG 26512 --- [http-nio-8080-exec-5] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:15:25.729 DEBUG 26512 --- [http-nio-8080-exec-5] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:15:25.730 DEBUG 26512 --- [http-nio-8080-exec-5] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:15:25.730 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:15:25.731 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:15:25.734 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:15:25.735 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:15:25.735 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:15:25.739 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:15:25.740  INFO 26512 --- [http-nio-8080-exec-5] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:20:27.314  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:20:27.323 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:20:27.324 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:20:27.325 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:20:27.326 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:20:27.326 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:20:27.329 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:20:27.329 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:20:27.330 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:20:27.331 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:20:27.332  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:20:27.386  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:20:27.393 DEBUG 26512 --- [http-nio-8080-exec-1] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:20:27.393 DEBUG 26512 --- [http-nio-8080-exec-1] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:20:27.394 DEBUG 26512 --- [http-nio-8080-exec-1] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:20:27.395 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:20:27.396 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:20:27.401 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:20:27.401 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:20:27.402 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:20:27.404 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:20:27.405  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:21:35.673  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.ArchiveShowController.archive', args=[{}]}
+2020-09-26 02:21:35.682 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getAllBlogQuery    : ==>  Preparing: select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc
+2020-09-26 02:21:35.682 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getAllBlogQuery    : ==> Parameters: 
+2020-09-26 02:21:35.685 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getAllBlogQuery    : <==      Total: 4
+2020-09-26 02:21:35.686  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Result : archives
+2020-09-26 02:21:35.831  INFO 26512 --- [http-nio-8080-exec-7] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 02:21:35.832 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 02:21:35.832 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 02:21:35.834 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 02:21:35.834 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 02:21:35.835 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 02:21:35.836 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 02:21:35.836 DEBUG 26512 --- [http-nio-8080-exec-7] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 02:21:35.837 DEBUG 26512 --- [http-nio-8080-exec-7] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 02:21:35.839 DEBUG 26512 --- [http-nio-8080-exec-7] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 02:21:35.841 DEBUG 26512 --- [http-nio-8080-exec-7] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 02:21:35.842 DEBUG 26512 --- [http-nio-8080-exec-7] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 02:21:35.843 DEBUG 26512 --- [http-nio-8080-exec-7] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 02:21:35.843  INFO 26512 --- [http-nio-8080-exec-7] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 02:24:06.231  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/music', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.MusicShowController.about', args=[]}
+2020-09-26 02:24:06.234  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Result : music
+2020-09-26 02:24:08.279  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/message', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.MessageController.message', args=[]}
+2020-09-26 02:24:08.283  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Result : message
+2020-09-26 02:24:08.350  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 02:24:08.354 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 02:24:08.355 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 02:24:08.356 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 02:24:08.356 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 02:24:08.357 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 02:24:08.357 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 02:24:08.359 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 02:24:08.359 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 02:24:08.360 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 02:24:08.361 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 02:24:08.362 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 02:24:08.363 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 02:24:08.363  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 02:24:08.424  INFO 26512 --- [http-nio-8080-exec-7] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/messagecomment', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.MessageController.messages', args=[{}]}
+2020-09-26 02:24:08.427 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.dao.MessageDao.findByParentIdNull    : ==>  Preparing: select * from blog.t_message c where c.parent_message_id = ? order by c.create_time desc
+2020-09-26 02:24:08.430 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.dao.MessageDao.findByParentIdNull    : ==> Parameters: -1(Long)
+2020-09-26 02:24:08.431 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.dao.MessageDao.findByParentIdNull    : <==      Total: 1
+2020-09-26 02:24:08.432 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.d.MessageDao.findByParentIdNotNull   : ==>  Preparing: select * from blog.t_message c where c.parent_message_id = ? order by c.create_time desc
+2020-09-26 02:24:08.432 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.d.MessageDao.findByParentIdNotNull   : ==> Parameters: 1(Long)
+2020-09-26 02:24:08.433 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.d.MessageDao.findByParentIdNotNull   : <==      Total: 1
+2020-09-26 02:24:08.434 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.MessageDao.findByReplayId  : ==>  Preparing: select * from blog.t_message c where c.parent_message_id = ? order by c.create_time desc
+2020-09-26 02:24:08.435 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.MessageDao.findByReplayId  : ==> Parameters: 2(Long)
+2020-09-26 02:24:08.435 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.MessageDao.findByReplayId  : <==      Total: 0
+2020-09-26 02:24:08.436  INFO 26512 --- [http-nio-8080-exec-7] com.oldou.aspect.LogAspect               : Result : message::messageList
+2020-09-26 02:25:04.702  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/picture', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.PictureShowController.friends', args=[{}]}
+2020-09-26 02:25:04.708 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.PictureDao.listPicture     : ==>  Preparing: select * from blog.t_picture order by t_picture.id desc
+2020-09-26 02:25:04.708 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.PictureDao.listPicture     : ==> Parameters: 
+2020-09-26 02:25:04.710 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.PictureDao.listPicture     : <==      Total: 6
+2020-09-26 02:25:04.710  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Result : picture
+2020-09-26 02:25:04.881  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 02:25:04.882 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 02:25:04.882 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 02:25:04.883 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 02:25:04.883 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 02:25:04.884 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 02:25:04.885 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 02:25:04.885 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 02:25:04.886 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 02:25:04.887 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 02:25:04.888 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 02:25:04.888 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 02:25:04.889 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 02:25:04.890  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 02:26:57.641  INFO 26512 --- [http-nio-8080-exec-3] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.FriendsShowController.friends', args=[{}]}
+2020-09-26 02:26:57.654 DEBUG 26512 --- [http-nio-8080-exec-3] c.o.dao.FriendLinkDao.listFriendLink     : ==>  Preparing: select * from blog.t_friend order by t_friend.create_time desc
+2020-09-26 02:26:57.654 DEBUG 26512 --- [http-nio-8080-exec-3] c.o.dao.FriendLinkDao.listFriendLink     : ==> Parameters: 
+2020-09-26 02:26:57.657 DEBUG 26512 --- [http-nio-8080-exec-3] c.o.dao.FriendLinkDao.listFriendLink     : <==      Total: 2
+2020-09-26 02:26:57.658  INFO 26512 --- [http-nio-8080-exec-3] com.oldou.aspect.LogAspect               : Result : friends
+2020-09-26 02:26:57.770  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 02:26:57.771 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 02:26:57.772 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 02:26:57.773 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 02:26:57.774 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 02:26:57.774 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 02:26:57.775 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 02:26:57.776 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 02:26:57.776 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 02:26:57.777 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 02:26:57.778 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 02:26:57.778 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 02:26:57.779 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 02:26:57.779  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 02:28:53.064  INFO 26512 --- [http-nio-8080-exec-3] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.AboutShowController.about', args=[]}
+2020-09-26 02:28:53.067  INFO 26512 --- [http-nio-8080-exec-3] com.oldou.aspect.LogAspect               : Result : about
+2020-09-26 02:28:53.175  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 02:28:53.179 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 02:28:53.180 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 02:28:53.180 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 02:28:53.180 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 02:28:53.180 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 02:28:53.181 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 02:28:53.181 DEBUG 26512 --- [http-nio-8080-exec-2] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 02:28:53.181 DEBUG 26512 --- [http-nio-8080-exec-2] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 02:28:53.182 DEBUG 26512 --- [http-nio-8080-exec-2] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 02:28:53.182 DEBUG 26512 --- [http-nio-8080-exec-2] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 02:28:53.182 DEBUG 26512 --- [http-nio-8080-exec-2] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 02:28:53.184 DEBUG 26512 --- [http-nio-8080-exec-2] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 02:28:53.184  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 02:28:53.276  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.AboutShowController.about', args=[]}
+2020-09-26 02:28:53.276  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Result : about
+2020-09-26 02:33:28.966 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.UserDao.findUsernameAndPassword  : ==>  Preparing: select * from blog.t_user where username = ? and password = ?;
+2020-09-26 02:33:28.967 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.UserDao.findUsernameAndPassword  : ==> Parameters: admin(String), 202cb962ac59075b964b07152d234b70(String)
+2020-09-26 02:33:28.968 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.UserDao.findUsernameAndPassword  : <==      Total: 0
+2020-09-26 02:33:39.740 DEBUG 26512 --- [http-nio-8080-exec-10] c.o.dao.UserDao.findUsernameAndPassword  : ==>  Preparing: select * from blog.t_user where username = ? and password = ?;
+2020-09-26 02:33:39.740 DEBUG 26512 --- [http-nio-8080-exec-10] c.o.dao.UserDao.findUsernameAndPassword  : ==> Parameters: oldou(String), 202cb962ac59075b964b07152d234b70(String)
+2020-09-26 02:33:39.742 DEBUG 26512 --- [http-nio-8080-exec-10] c.o.dao.UserDao.findUsernameAndPassword  : <==      Total: 1
+2020-09-26 02:33:56.532 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-26 02:33:56.532 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : ==> Parameters: 
+2020-09-26 02:33:56.533 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : <==      Total: 1
+2020-09-26 02:33:56.535 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getAllBlogQuery    : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-26 02:33:56.535 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getAllBlogQuery    : ==> Parameters: 10(Integer)
+2020-09-26 02:33:56.537 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getAllBlogQuery    : <==      Total: 4
+2020-09-26 02:33:56.540 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllType         : ==>  Preparing: select * from blog.t_type
+2020-09-26 02:33:56.541 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllType         : ==> Parameters: 
+2020-09-26 02:33:56.542 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllType         : <==      Total: 8
+2020-09-26 02:35:14.899 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_type
+2020-09-26 02:35:14.899 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType_COUNT   : ==> Parameters: 
+2020-09-26 02:35:14.900 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType_COUNT   : <==      Total: 1
+2020-09-26 02:35:14.901 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType         : ==>  Preparing: SELECT * FROM blog.t_type order by id ASC LIMIT ?
+2020-09-26 02:35:14.901 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType         : ==> Parameters: 10(Integer)
+2020-09-26 02:35:14.902 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType         : <==      Total: 8
+2020-09-26 02:36:27.262 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.d.F.listFriendLink_COUNT             : ==>  Preparing: SELECT count(0) FROM blog.t_friend
+2020-09-26 02:36:27.262 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.d.F.listFriendLink_COUNT             : ==> Parameters: 
+2020-09-26 02:36:27.263 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.d.F.listFriendLink_COUNT             : <==      Total: 1
+2020-09-26 02:36:27.264 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.dao.FriendLinkDao.listFriendLink     : ==>  Preparing: select * from blog.t_friend order by t_friend.create_time desc LIMIT ?
+2020-09-26 02:36:27.264 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.dao.FriendLinkDao.listFriendLink     : ==> Parameters: 10(Integer)
+2020-09-26 02:36:27.265 DEBUG 26512 --- [http-nio-8080-exec-7] c.o.dao.FriendLinkDao.listFriendLink     : <==      Total: 2
+2020-09-26 02:40:50.958 DEBUG 26512 --- [http-nio-8080-exec-8] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-26 02:40:50.958 DEBUG 26512 --- [http-nio-8080-exec-8] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : ==> Parameters: 
+2020-09-26 02:40:50.959 DEBUG 26512 --- [http-nio-8080-exec-8] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : <==      Total: 1
+2020-09-26 02:40:50.961 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getAllBlogQuery    : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-26 02:40:50.961 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getAllBlogQuery    : ==> Parameters: 10(Integer)
+2020-09-26 02:40:50.963 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getAllBlogQuery    : <==      Total: 4
+2020-09-26 02:40:50.964 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.TypeDao.getAllType         : ==>  Preparing: select * from blog.t_type
+2020-09-26 02:40:50.964 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.TypeDao.getAllType         : ==> Parameters: 
+2020-09-26 02:40:50.965 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.TypeDao.getAllType         : <==      Total: 8
+2020-09-26 02:40:56.291 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogById        : ==>  Preparing: select b.id,b.flag,b.title,b.content,b.type_id, b.first_picture,b.description,b.recommend,b.published,b.share_statement, b.appreciation,b.commentabled from blog.t_blog b where b.id = ?;
+2020-09-26 02:40:56.292 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogById        : ==> Parameters: 4(Long)
+2020-09-26 02:40:56.293 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.BlogDao.getBlogById        : <==      Total: 1
+2020-09-26 02:40:56.294 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType         : ==>  Preparing: select * from blog.t_type
+2020-09-26 02:40:56.294 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType         : ==> Parameters: 
+2020-09-26 02:40:56.295 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.TypeDao.getAllType         : <==      Total: 8
+2020-09-26 02:58:10.048  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:58:10.056 DEBUG 26512 --- [http-nio-8080-exec-6] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:58:10.056 DEBUG 26512 --- [http-nio-8080-exec-6] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:58:10.057 DEBUG 26512 --- [http-nio-8080-exec-6] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:58:10.058 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:58:10.058 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:58:10.060 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:58:10.061 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:58:10.061 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:58:10.063 DEBUG 26512 --- [http-nio-8080-exec-6] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:58:10.063  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:58:10.102  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:58:10.105 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:58:10.105 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:58:10.106 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:58:10.107 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:58:10.107 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:58:10.109 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:58:10.109 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:58:10.109 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:58:10.112 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:58:10.112  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:58:27.864  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:58:27.866 DEBUG 26512 --- [http-nio-8080-exec-9] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:58:27.867 DEBUG 26512 --- [http-nio-8080-exec-9] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:58:27.867 DEBUG 26512 --- [http-nio-8080-exec-9] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:58:27.868 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:58:27.868 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:58:27.869 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:58:27.870 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:58:27.870 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:58:27.871 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:58:27.872  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:58:28.504  INFO 26512 --- [http-nio-8080-exec-5] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:58:28.506 DEBUG 26512 --- [http-nio-8080-exec-5] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:58:28.506 DEBUG 26512 --- [http-nio-8080-exec-5] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:58:28.507 DEBUG 26512 --- [http-nio-8080-exec-5] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:58:28.508 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:58:28.508 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:58:28.510 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:58:28.510 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:58:28.510 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:58:28.512 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:58:28.512  INFO 26512 --- [http-nio-8080-exec-5] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:59:13.568  INFO 26512 --- [http-nio-8080-exec-3] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:59:13.569 DEBUG 26512 --- [http-nio-8080-exec-3] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:59:13.570 DEBUG 26512 --- [http-nio-8080-exec-3] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:59:13.571 DEBUG 26512 --- [http-nio-8080-exec-3] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:59:13.572 DEBUG 26512 --- [http-nio-8080-exec-3] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:59:13.572 DEBUG 26512 --- [http-nio-8080-exec-3] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:59:13.574 DEBUG 26512 --- [http-nio-8080-exec-3] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:59:13.575 DEBUG 26512 --- [http-nio-8080-exec-3] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:59:13.575 DEBUG 26512 --- [http-nio-8080-exec-3] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:59:13.577 DEBUG 26512 --- [http-nio-8080-exec-3] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:59:13.577  INFO 26512 --- [http-nio-8080-exec-3] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:59:13.622  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.index', args=[{}, {}, 1]}
+2020-09-26 02:59:13.624 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_blog b, blog.t_type t, blog.t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2020-09-26 02:59:13.625 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : ==> Parameters: 
+2020-09-26 02:59:13.626 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getFirstPageBlog_COUNT   : <==      Total: 1
+2020-09-26 02:59:13.626 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count,b.update_time,b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?
+2020-09-26 02:59:13.627 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : ==> Parameters: 10(Integer)
+2020-09-26 02:59:13.628 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getFirstPageBlog   : <==      Total: 4
+2020-09-26 02:59:13.629 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==>  Preparing: select * from blog.t_blog where t_blog.recommend = true order by t_blog.update_time desc limit 4;
+2020-09-26 02:59:13.629 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : ==> Parameters: 
+2020-09-26 02:59:13.630 DEBUG 26512 --- [http-nio-8080-exec-4] c.oldou.dao.BlogDao.getAllRecommendBlog  : <==      Total: 3
+2020-09-26 02:59:13.631  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Result : index
+2020-09-26 02:59:13.669  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 02:59:13.669 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 02:59:13.670 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 02:59:13.670 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 02:59:13.671 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 02:59:13.671 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 02:59:13.672 DEBUG 26512 --- [http-nio-8080-exec-9] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 02:59:13.672 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 02:59:13.672 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 02:59:13.673 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 02:59:13.673 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 02:59:13.674 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 02:59:13.674 DEBUG 26512 --- [http-nio-8080-exec-9] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 02:59:13.675  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:00:25.114  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/types/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.TypeShowController.types', args=[1, -1, {}]}
+2020-09-26 03:00:25.122 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllTypeAndBlog  : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title,b.type_id from blog.t_type t,blog.t_blog b where t.id = b.type_id
+2020-09-26 03:00:25.123 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllTypeAndBlog  : ==> Parameters: 
+2020-09-26 03:00:25.125 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllTypeAndBlog  : <==      Total: 4
+2020-09-26 03:00:25.126 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getByTypeId        : ==>  Preparing: select b.id,b.title,b.first_picture, b.views, b.comment_count, b.update_time, b.description, t.name , u.nickname, u.avatar from blog.t_blog b, blog.t_type t,blog.t_user u where b.type_id = t.id and u.id = b.user_id and b.type_id = ? order by b.update_time desc
+2020-09-26 03:00:25.126 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getByTypeId        : ==> Parameters: 1(Long)
+2020-09-26 03:00:25.127 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getByTypeId        : <==      Total: 1
+2020-09-26 03:00:25.127  INFO 26512 --- [http-nio-8080-exec-4] com.oldou.aspect.LogAspect               : Result : types
+2020-09-26 03:00:25.206  INFO 26512 --- [http-nio-8080-exec-8] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 03:00:25.207 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 03:00:25.208 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 03:00:25.208 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 03:00:25.209 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 03:00:25.209 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 03:00:25.210 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 03:00:25.210 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 03:00:25.211 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 03:00:25.212 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 03:00:25.212 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 03:00:25.212 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 03:00:25.213 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 03:00:25.213  INFO 26512 --- [http-nio-8080-exec-8] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:00:29.919  INFO 26512 --- [http-nio-8080-exec-7] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/archives', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.ArchiveShowController.archive', args=[{}]}
+2020-09-26 03:00:29.920 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getAllBlogQuery    : ==>  Preparing: select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.update_time desc
+2020-09-26 03:00:29.920 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getAllBlogQuery    : ==> Parameters: 
+2020-09-26 03:00:29.922 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.BlogDao.getAllBlogQuery    : <==      Total: 4
+2020-09-26 03:00:29.923  INFO 26512 --- [http-nio-8080-exec-7] com.oldou.aspect.LogAspect               : Result : archives
+2020-09-26 03:00:30.035  INFO 26512 --- [http-nio-8080-exec-8] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 03:00:30.035 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 03:00:30.035 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 03:00:30.036 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 03:00:30.036 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 03:00:30.037 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 03:00:30.037 DEBUG 26512 --- [http-nio-8080-exec-8] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 03:00:30.038 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 03:00:30.038 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 03:00:30.039 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 03:00:30.039 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 03:00:30.039 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 03:00:30.040 DEBUG 26512 --- [http-nio-8080-exec-8] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 03:00:30.040  INFO 26512 --- [http-nio-8080-exec-8] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:00:34.873  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/music', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.MusicShowController.about', args=[]}
+2020-09-26 03:00:34.873  INFO 26512 --- [http-nio-8080-exec-9] com.oldou.aspect.LogAspect               : Result : music
+2020-09-26 03:00:42.693  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/message', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.MessageController.message', args=[]}
+2020-09-26 03:00:42.693  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Result : message
+2020-09-26 03:00:42.756  INFO 26512 --- [http-nio-8080-exec-10] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 03:00:42.757 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 03:00:42.757 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 03:00:42.758 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 03:00:42.758 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 03:00:42.758 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 03:00:42.759 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 03:00:42.759 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 03:00:42.759 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 03:00:42.760 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 03:00:42.760 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 03:00:42.761 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 03:00:42.761 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 03:00:42.761  INFO 26512 --- [http-nio-8080-exec-10] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:00:42.825  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/messagecomment', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.MessageController.messages', args=[{}]}
+2020-09-26 03:00:42.825 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.dao.MessageDao.findByParentIdNull    : ==>  Preparing: select * from blog.t_message c where c.parent_message_id = ? order by c.create_time desc
+2020-09-26 03:00:42.826 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.dao.MessageDao.findByParentIdNull    : ==> Parameters: -1(Long)
+2020-09-26 03:00:42.827 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.dao.MessageDao.findByParentIdNull    : <==      Total: 1
+2020-09-26 03:00:42.828 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.d.MessageDao.findByParentIdNotNull   : ==>  Preparing: select * from blog.t_message c where c.parent_message_id = ? order by c.create_time desc
+2020-09-26 03:00:42.828 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.d.MessageDao.findByParentIdNotNull   : ==> Parameters: 1(Long)
+2020-09-26 03:00:42.829 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.d.MessageDao.findByParentIdNotNull   : <==      Total: 1
+2020-09-26 03:00:42.830 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.MessageDao.findByReplayId  : ==>  Preparing: select * from blog.t_message c where c.parent_message_id = ? order by c.create_time desc
+2020-09-26 03:00:42.830 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.MessageDao.findByReplayId  : ==> Parameters: 2(Long)
+2020-09-26 03:00:42.831 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.MessageDao.findByReplayId  : <==      Total: 0
+2020-09-26 03:00:42.832  INFO 26512 --- [http-nio-8080-exec-2] com.oldou.aspect.LogAspect               : Result : message::messageList
+2020-09-26 03:00:48.328  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/picture', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.PictureShowController.friends', args=[{}]}
+2020-09-26 03:00:48.328 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.PictureDao.listPicture     : ==>  Preparing: select * from blog.t_picture order by t_picture.id desc
+2020-09-26 03:00:48.329 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.PictureDao.listPicture     : ==> Parameters: 
+2020-09-26 03:00:48.330 DEBUG 26512 --- [http-nio-8080-exec-6] com.oldou.dao.PictureDao.listPicture     : <==      Total: 6
+2020-09-26 03:00:48.331  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Result : picture
+2020-09-26 03:00:48.478  INFO 26512 --- [http-nio-8080-exec-5] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 03:00:48.479 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 03:00:48.480 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 03:00:48.481 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 03:00:48.482 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 03:00:48.482 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 03:00:48.483 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 03:00:48.483 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 03:00:48.483 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 03:00:48.484 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 03:00:48.484 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 03:00:48.484 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 03:00:48.485 DEBUG 26512 --- [http-nio-8080-exec-5] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 03:00:48.485  INFO 26512 --- [http-nio-8080-exec-5] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:01:00.846  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/friends', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.FriendsShowController.friends', args=[{}]}
+2020-09-26 03:01:00.847 DEBUG 26512 --- [http-nio-8080-exec-6] c.o.dao.FriendLinkDao.listFriendLink     : ==>  Preparing: select * from blog.t_friend order by t_friend.create_time desc
+2020-09-26 03:01:00.847 DEBUG 26512 --- [http-nio-8080-exec-6] c.o.dao.FriendLinkDao.listFriendLink     : ==> Parameters: 
+2020-09-26 03:01:00.848 DEBUG 26512 --- [http-nio-8080-exec-6] c.o.dao.FriendLinkDao.listFriendLink     : <==      Total: 2
+2020-09-26 03:01:00.848  INFO 26512 --- [http-nio-8080-exec-6] com.oldou.aspect.LogAspect               : Result : friends
+2020-09-26 03:01:00.919  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 03:01:00.919 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 03:01:00.919 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 03:01:00.920 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 03:01:00.920 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 03:01:00.921 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 03:01:00.921 DEBUG 26512 --- [http-nio-8080-exec-1] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 03:01:00.922 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 03:01:00.922 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 03:01:00.922 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 03:01:00.923 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 03:01:00.923 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 03:01:00.924 DEBUG 26512 --- [http-nio-8080-exec-1] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 03:01:00.924  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:01:07.247  INFO 26512 --- [http-nio-8080-exec-8] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.AboutShowController.about', args=[]}
+2020-09-26 03:01:07.247  INFO 26512 --- [http-nio-8080-exec-8] com.oldou.aspect.LogAspect               : Result : about
+2020-09-26 03:01:07.282  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/about', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.AboutShowController.about', args=[]}
+2020-09-26 03:01:07.282  INFO 26512 --- [http-nio-8080-exec-1] com.oldou.aspect.LogAspect               : Result : about
+2020-09-26 03:01:07.319  INFO 26512 --- [http-nio-8080-exec-10] com.oldou.aspect.LogAspect               : Request : RequestLog{url='http://localhost:8080/footer/blogmessage', ip='0:0:0:0:0:0:0:1', classMethod='com.oldou.controller.IndexController.blogMessage', args=[{}]}
+2020-09-26 03:01:07.320 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogTotal       : ==>  Preparing: select count(*) from blog.t_blog
+2020-09-26 03:01:07.320 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogTotal       : ==> Parameters: 
+2020-09-26 03:01:07.331 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogTotal       : <==      Total: 1
+2020-09-26 03:01:07.332 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogViewTotal   : ==>  Preparing: select sum(views) from blog.t_blog
+2020-09-26 03:01:07.332 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogViewTotal   : ==> Parameters: 
+2020-09-26 03:01:07.333 DEBUG 26512 --- [http-nio-8080-exec-10] com.oldou.dao.BlogDao.getBlogViewTotal   : <==      Total: 1
+2020-09-26 03:01:07.333 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==>  Preparing: select count(*) from blog.t_comment
+2020-09-26 03:01:07.333 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogCommentTotal  : ==> Parameters: 
+2020-09-26 03:01:07.334 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogCommentTotal  : <==      Total: 1
+2020-09-26 03:01:07.334 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==>  Preparing: select count(*) from blog.t_message
+2020-09-26 03:01:07.335 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogMessageTotal  : ==> Parameters: 
+2020-09-26 03:01:07.336 DEBUG 26512 --- [http-nio-8080-exec-10] c.oldou.dao.BlogDao.getBlogMessageTotal  : <==      Total: 1
+2020-09-26 03:01:07.336  INFO 26512 --- [http-nio-8080-exec-10] com.oldou.aspect.LogAspect               : Result : index :: blogMessage
+2020-09-26 03:01:45.819 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-26 03:01:45.820 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : ==> Parameters: 
+2020-09-26 03:01:45.821 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.BlogDao.getAllBlogQuery_COUNT    : <==      Total: 1
+2020-09-26 03:01:45.823 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getAllBlogQuery    : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-26 03:01:45.823 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getAllBlogQuery    : ==> Parameters: 10(Integer)
+2020-09-26 03:01:45.825 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.BlogDao.getAllBlogQuery    : <==      Total: 4
+2020-09-26 03:01:45.825 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllType         : ==>  Preparing: select * from blog.t_type
+2020-09-26 03:01:45.825 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllType         : ==> Parameters: 
+2020-09-26 03:01:45.826 DEBUG 26512 --- [http-nio-8080-exec-4] com.oldou.dao.TypeDao.getAllType         : <==      Total: 8
+2020-09-26 03:02:00.905 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.TypeDao.getAllType_COUNT   : ==>  Preparing: SELECT count(0) FROM blog.t_type
+2020-09-26 03:02:00.905 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.TypeDao.getAllType_COUNT   : ==> Parameters: 
+2020-09-26 03:02:00.906 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.TypeDao.getAllType_COUNT   : <==      Total: 1
+2020-09-26 03:02:00.907 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.TypeDao.getAllType         : ==>  Preparing: SELECT * FROM blog.t_type order by id ASC LIMIT ?
+2020-09-26 03:02:00.907 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.TypeDao.getAllType         : ==> Parameters: 10(Integer)
+2020-09-26 03:02:00.908 DEBUG 26512 --- [http-nio-8080-exec-7] com.oldou.dao.TypeDao.getAllType         : <==      Total: 8
+2020-09-26 03:02:06.537 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.TagDao.getAllTag_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_tag
+2020-09-26 03:02:06.538 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.TagDao.getAllTag_COUNT     : ==> Parameters: 
+2020-09-26 03:02:06.539 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.TagDao.getAllTag_COUNT     : <==      Total: 1
+2020-09-26 03:02:06.539 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.TagDao.getAllTag           : ==>  Preparing: SELECT * FROM blog.t_tag order by id asc LIMIT ?
+2020-09-26 03:02:06.539 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.TagDao.getAllTag           : ==> Parameters: 10(Integer)
+2020-09-26 03:02:06.540 DEBUG 26512 --- [http-nio-8080-exec-5] com.oldou.dao.TagDao.getAllTag           : <==      Total: 10
+2020-09-26 03:02:10.048 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.d.F.listFriendLink_COUNT             : ==>  Preparing: SELECT count(0) FROM blog.t_friend
+2020-09-26 03:02:10.048 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.d.F.listFriendLink_COUNT             : ==> Parameters: 
+2020-09-26 03:02:10.049 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.d.F.listFriendLink_COUNT             : <==      Total: 1
+2020-09-26 03:02:10.049 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.FriendLinkDao.listFriendLink     : ==>  Preparing: select * from blog.t_friend order by t_friend.create_time desc LIMIT ?
+2020-09-26 03:02:10.049 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.FriendLinkDao.listFriendLink     : ==> Parameters: 10(Integer)
+2020-09-26 03:02:10.050 DEBUG 26512 --- [http-nio-8080-exec-4] c.o.dao.FriendLinkDao.listFriendLink     : <==      Total: 2
+2020-09-26 03:02:12.864 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.dao.PictureDao.listPicture_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_picture
+2020-09-26 03:02:12.865 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.dao.PictureDao.listPicture_COUNT     : ==> Parameters: 
+2020-09-26 03:02:12.865 DEBUG 26512 --- [http-nio-8080-exec-2] c.o.dao.PictureDao.listPicture_COUNT     : <==      Total: 1
+2020-09-26 03:02:12.865 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.PictureDao.listPicture     : ==>  Preparing: select * from blog.t_picture order by t_picture.id desc LIMIT ?
+2020-09-26 03:02:12.866 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.PictureDao.listPicture     : ==> Parameters: 10(Integer)
+2020-09-26 03:02:12.868 DEBUG 26512 --- [http-nio-8080-exec-2] com.oldou.dao.PictureDao.listPicture     : <==      Total: 6
